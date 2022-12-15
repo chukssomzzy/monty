@@ -15,7 +15,6 @@
 int get_opcodes(char *opcode, long int *arg, char *line, size_t n)
 {
 	size_t i = 0, j = 0;
-	char *endptr;
 
 	while (*(line + i) && i < n)
 	{
@@ -31,8 +30,6 @@ int get_opcodes(char *opcode, long int *arg, char *line, size_t n)
 	if (!(*(line + i)) && !j)
 		return (0);
 	opcode[j] = '\0';
-	*arg = strtol((line + i + 1), &endptr, BASE10);
-	if (endptr == (line + i + 1))
-		*arg = 0;
+	*arg = atoi(line + i + 1);
 	return (1);
 }

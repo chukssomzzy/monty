@@ -1,6 +1,6 @@
 # include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
+# include <stdio.h>
+# include <stdlib.h>
 
 /**
  * push_op - push an integer to the stack

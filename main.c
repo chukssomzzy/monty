@@ -40,6 +40,7 @@ int main(int argc, char **argv)
 		else
 			error_handler(&line_num, opcode, "instruct", NULL);
 	}
+	fclose(monty_f);
 	free_stack(stack);
 	exit(EXIT_SUCCESS);
 }

@@ -2,7 +2,6 @@
 # define _MONTY_
 #include <stdint.h>
 # include <stdio.h>
-# include <stdlib.h>
 
 
 /**
