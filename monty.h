@@ -67,6 +67,6 @@ void pint_op(stack_t **stack, unsigned int line_num);
 void pop_op(stack_t **stack, unsigned int line_num);
 void swap_op(stack_t **t, unsigned int line_num);
 void add_op(stack_t **t, unsigned int line_num);
-
+void nop_op(stack_t **t, unsigned int line_num);
 
 # endif
