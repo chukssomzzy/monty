@@ -6,7 +6,7 @@
  * @n: line number of code
  */
 
-void pall_op(stack_t **t, unsigned int n)
+void pall_op(stack_t **t, __attribute__ ((unused)) unsigned int n)
 {
 	stack_t *tmp;
 
@@ -19,6 +19,4 @@ void pall_op(stack_t **t, unsigned int n)
 		printf("%u\n", tmp->n);
 		tmp = tmp->next;
 	}
-	if (n)
-		;
 }
