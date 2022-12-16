@@ -10,8 +10,10 @@ void swap_op(stack_t **t, unsigned int line_num)
 {
 	stack_t *tmp, *cur, *next;
 
+	if ((t && !(*t)) || !t)
+		cleanup(*t, line_num, "can't swap, stack too short");
 	tmp = *t;
-	if ((tmp && !(tmp->next) && !(tmp->next->next)) || !t)
+	if ((tmp && !tmp->next) || !tmp)
 		cleanup(*t, line_num, "can't swap, stack too short");
 	while (tmp->prev)
 		tmp = tmp->prev;
