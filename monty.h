@@ -2,7 +2,12 @@
 # define _MONTY_
 #include <stdint.h>
 # include <stdio.h>
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -33,12 +38,27 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-int get_opcodes(char *, long int *, char *, size_t n);
-void (*get_stackop(char *opcode, int line_num))(stack_t **, unsigned int);
-void error_handler(size_t *line_num, char *opcode, char *error, char *file);
+/**
+ * struct state_s - variables -args, file, line content
+ * @arg: value
+ * @file: pointer to monty file
+ * @content: line content
+ * @lifi: queue or stack
+ * Description: carries values through the program
+ */
+typedef struct state_s
+{
+	char *arg;
+	FILE *file;
+	char *content;
+	int lifi;
+}  state_t;
+extern state_t state;
+void(*get_stackop(stack_t **stack, unsigned int counter)) (stack_t **, unsigned int);
 void free_stack(stack_t *);
 void push_op(stack_t **, unsigned int);
 void pall_op(stack_t **t, unsigned int n);
-int check_op_ex(char *opcode);
+void addnode(stack_t **head, int n);
+void addqueue(stack_t **head, int n);
 
 # endif

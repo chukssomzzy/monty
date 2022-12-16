@@ -2,23 +2,36 @@
 
 /**
  * get_stackop - return a function pointer all exit on invalid opcode
- * @opcode: character string to match in other to fetch the required function
- * @line_num: line number where opcode was found
+ * @sta: character string to match in other to fetch the required function
+ * @lin: line number where opcode was found
  *
  * Return: function pointer
  */
 
-void (*get_stackop(char *opcode, int line_num))(stack_t **, unsigned int)
+void (*get_stackop(stack_t **sta, unsigned int lin))(stack_t **, unsigned int)
 {
 	instruction_t instruct_sta[] = {{"push", push_op}, {"pall", pall_op},
-									{NULL, NULL}};
+		{NULL, NULL}};
+	unsigned int i = 0;
+	char *op;
 
-	int i = 0;
-
-	while (instruct_sta[i++].opcode)
-		if (!strcmp(instruct_sta[i - 1].opcode, opcode))
-			return (instruct_sta[i - 1].f);
-	if (line_num)
-		;
+	op = strtok(state.content, " \n\t");
+	if (op && op[0] == '#')
+		return (NULL);
+	state.arg = strtok(NULL, " \n\t");
+	while (instruct_sta[i].opcode && op)
+	{
+		if (!strcmp(op, instruct_sta[i].opcode))
+		{
+			return (instruct_sta[i].f);
+		}
+		i++;
+	}
+	if (op && instruct_sta[i].opcode == NULL)
+	{ fprintf(stderr, "L%d: unknown instruction %s\n", lin, op);
+		fclose(state.file);
+		free(state.content);
+		free_stack(*sta);
+		exit(EXIT_FAILURE); }
 	return (NULL);
 }
