@@ -10,7 +10,7 @@ void pall_op(stack_t **t, __attribute__ ((unused)) unsigned int n)
 {
 	stack_t *tmp;
 
-	if (!t)
+	if ((t && !(*t)) || !t)
 		return;
 	tmp = *t;
 

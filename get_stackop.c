@@ -11,8 +11,8 @@
 void (*get_stackop(stack_t **sta, unsigned int lin))(stack_t **, unsigned int)
 {
 	instruction_t instruct_sta[] = {{"push", push_op}, {"pall", pall_op}, {"pint",
-	 pint_op},
-		{NULL, NULL}};
+		pint_op}, {"pop", pop_op},
+				  {NULL, NULL}};
 	unsigned int i = 0;
 	char *op;
 
