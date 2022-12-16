@@ -1,5 +1,5 @@
 #include "monty.h"
-static void cleanup(stack_t *head, unsigned int counter);
+
 
 /**
  * push_op - add node to the stack
@@ -21,10 +21,10 @@ void push_op(stack_t **head, unsigned int counter)
 				flag = 1;
 		}
 		if (flag == 1)
-			cleanup(*head, counter);
+			cleanup(*head, counter, "usage: push integer");
 	}
 	else
-		cleanup(*head, counter);
+		cleanup(*head, counter, "usage: push integer");
 	n = atoi(state.arg);
 	if (state.lifi == 0)
 		addnode(head, n);
@@ -35,12 +35,13 @@ void push_op(stack_t **head, unsigned int counter)
 /**
  * cleanup - close all buffers and exit
  * @head: head of stack
- * @counter: line_number
+ * @line_num: line_number
+ * @err: error message
  */
 
-void cleanup(stack_t *head, unsigned int counter)
+void cleanup(stack_t *head, unsigned int line_num, char *err)
 {
-	fprintf(stderr, "L%d: usage: push integer\n", counter);
+	fprintf(stderr, "L%d: %s\n", line_num, err);
 	fclose(state.file);
 	free(state.content);
 	free_stack(head);
