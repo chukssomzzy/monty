@@ -1,2 +1,2 @@
-# monty
-an interpreter to monty bytecodes
+# Monty
+## an interpreter to monty bytecodes
