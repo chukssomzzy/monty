@@ -20,9 +20,9 @@
  * for stack, queues, LIFO, FIFO
  */
 typedef struct stack_s {
-  int n;
-  struct stack_s *prev;
-  struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -34,8 +34,8 @@ typedef struct stack_s {
  * for stack, queues, LIFO, FIFO
  */
 typedef struct instruction_s {
-  char *opcode;
-  void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /**
  * struct state_s - variables -args, file, line content
@@ -46,10 +46,10 @@ typedef struct instruction_s {
  * Description: carries values through the program
  */
 typedef struct state_s {
-  char *arg;
-  FILE *file;
-  char *content;
-  int lifi;
+	char *arg;
+	FILE *file;
+	char *content;
+	int lifi;
 }  state_t;
 extern state_t state;
 void(*get_stackop(stack_t **stack, unsigned int counter)) (stack_t **, unsigned int);
@@ -65,5 +65,7 @@ void swap_op(stack_t **t, unsigned int line_num);
 void add_op(stack_t **t, unsigned int line_num);
 void nop_op(stack_t **t, unsigned int line_num);
 void sub_op(stack_t **t, unsigned int line_num);
+void div_op(stack_t **t, unsigned int line_num);
+
 
 # endif
