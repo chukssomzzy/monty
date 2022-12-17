@@ -67,5 +67,6 @@ void nop_op(stack_t **t, unsigned int line_num);
 void sub_op(stack_t **t, unsigned int line_num);
 void div_op(stack_t **t, unsigned int line_num);
 void mul_op(stack_t **t, unsigned int line_num);
+void mod_op(stack_t **t, unsigned int line_num);
 
 # endif
