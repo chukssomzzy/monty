@@ -15,7 +15,8 @@ void sub_op(stack_t **t, unsigned int line_num)
 		cleanup(*t, line_num, "can't sub, stack too short");
 	if ((tmp && !tmp->next) || !tmp)
 		cleanup(*t, line_num, "can't sub, stack too short");
-	(*t)->next->n -= (tmp->n);
+	(*t)->next->n -= tmp->n;
+	(*t)->next->prev = NULL;
 	*t = (*t)->next;
 	free(tmp);
 }

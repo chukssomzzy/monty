@@ -16,6 +16,7 @@ void add_op(stack_t **t, unsigned int line_num)
 	if ((tmp && !tmp->next) || !tmp)
 		cleanup(*t, line_num, "can't add, stack too short");
 	(*t)->next->n += (tmp->n);
+	(*t)->next->prev = NULL;
 	*t = (*t)->next;
 	free(tmp);
 }

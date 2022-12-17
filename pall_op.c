@@ -16,7 +16,7 @@ void pall_op(stack_t **t, __attribute__ ((unused)) unsigned int n)
 
 	while (tmp)
 	{
-		printf("%u\n", tmp->n);
+		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
 }

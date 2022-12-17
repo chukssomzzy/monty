@@ -3,7 +3,6 @@
 # define _POSIX_C_SOURCE 200809L
 #include <stdint.h>
 # include <stdio.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <fcntl.h>
@@ -20,11 +19,10 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
-typedef struct stack_s
-{
-	int n;
-	struct stack_s *prev;
-	struct stack_s *next;
+typedef struct stack_s {
+  int n;
+  struct stack_s *prev;
+  struct stack_s *next;
 } stack_t;
 
 /**
@@ -35,10 +33,9 @@ typedef struct stack_s
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO
  */
-typedef struct instruction_s
-{
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+typedef struct instruction_s {
+  char *opcode;
+  void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /**
  * struct state_s - variables -args, file, line content
@@ -48,12 +45,11 @@ typedef struct instruction_s
  * @lifi: queue or stack
  * Description: carries values through the program
  */
-typedef struct state_s
-{
-	char *arg;
-	FILE *file;
-	char *content;
-	int lifi;
+typedef struct state_s {
+  char *arg;
+  FILE *file;
+  char *content;
+  int lifi;
 }  state_t;
 extern state_t state;
 void(*get_stackop(stack_t **stack, unsigned int counter)) (stack_t **, unsigned int);
