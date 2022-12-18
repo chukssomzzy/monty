@@ -1,5 +1,5 @@
 # include "monty.h"
-static int _isascii(int t_char);
+
 /**
  * pchar_op - print ascii at top
  * @t: double pointer to stack
