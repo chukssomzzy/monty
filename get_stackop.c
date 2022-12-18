@@ -14,8 +14,9 @@ void (*get_stackop(stack_t **sta, unsigned int lin))(stack_t **, unsigned int)
 		pint_op}, {"pop", pop_op}, {"swap", swap_op}, {"add", add_op},
 		{"nop", nop_op}, {"sub", sub_op}, {"div", div_op}, {"mul", mul_op},
 		{"mod", mod_op}, {"pchar", pchar_op}, {"pstr", pstr_op},
+		{"rotl", rotl_op},
 				  {NULL, NULL}};
-	unsigned int i = 0;
+	op_size i = 0;
 	char *op;
 
 	op = strtok(state.content, " \n\t");

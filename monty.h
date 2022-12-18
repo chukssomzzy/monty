@@ -72,5 +72,6 @@ void mod_op(stack_t **t, op_size line_num);
 void pchar_op(stack_t **t, op_size line_num);
 int _isascii(int t_char);
 void pstr_op(stack_t **t, op_size __attribute__((unused)) line_num);
+void rotl_op(stack_t **t, __attribute__((unused)) op_size line_num);
 
 # endif
