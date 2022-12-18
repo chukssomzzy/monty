@@ -11,7 +11,10 @@ void pstr_op(stack_t **t, op_size __attribute__((unused)) line_num)
 	stack_t *tmp;
 
 	if ((t && !(*t)) || !t)
+	{
 		putchar('\n');
+		return;
+	}
 	tmp = *t;
 	while (tmp)
 	{
